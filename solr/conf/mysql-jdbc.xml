@@ -1,0 +1,39 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost/aapaurmain_development" user="root"   password="root123"/>
+  <document name="aap-doc">
+    <entity name="users" dataSource="jdbc" pk="id" 
+            query="SELECT 
+            id                  AS id,
+            age                 AS u_age,
+            education           AS u_education,
+            profession          AS u_profession,
+            dream_for_future    AS u_dream,
+            family_preference   AS u_family_preference,
+            spouse_preference   AS u_spouse_preference,
+            settled_in          AS u_location,
+            settle_else         AS u_relocate,
+            virginity_opinion   AS u_virginity_opinion,
+            ideal_marriage      AS u_ideal_marriage,
+            salary              AS u_salary,
+            sex                 AS u_sex,
+            further_education_plans AS u_further_education,
+            short_bio           AS u_about_me
+
+            FROM users"
+      
+            deltaQuery="SELECT id FROM USERS WHERE updated_at > '${dataimporter.last_index_time}' OR created_at > '${dataimporter.last_index_time}'">
+      <entity name="hobbies" dataSource="jdbc" pk="id" 
+              query="SELECT hobby AS u_hobbies FROM hobbies WHERE user_id=${users.id}" 
+              deltaQuery="SELECT id FROM hobbies WHERE updated_at > '${dataimporter.last_index_time}'"
+              parentDeltaQuery="SELECT id FROM users WHERE id=${hobbies.user_id}" />
+      <entity name="interested" dataSource="jdbc" pk="id" 
+              query="SELECT interested AS u_specific_interest FROM interested_in WHERE user_id=${users.id}" 
+              deltaQuery="SELECT id FROM interested_in WHERE updated_at > '${dataimporter.last_index_time}'"
+              parentDeltaQuery="SELECT id FROM users WHERE id=${interested_in.user_id}" />
+      <entity name="not_interested" dataSource="jdbc" pk="id" 
+              query="SELECT not_interested AS u_not_interested FROM not_interested_in WHERE user_id=${users.id}"
+              deltaQuery="SELECT id FROM not_interested_in WHERE updated_at > '${dataimporter.last_index_time}'"
+              parentDeltaQuery="SELECT id FROM users WHERE id=${not_interested_in.user_id}" />
+    </entity>
+  </document>
+</dataConfig>
