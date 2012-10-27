@@ -1,10 +1,9 @@
 <dataConfig>
-  <dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost/aapaurmain_development" user="root"   password="root123"/>
+  <dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost/aapaurmain_production" user="maindbadmin" password="crackitin123"/>
   <document name="aap-doc">
     <entity name="users" dataSource="jdbc" pk="id" 
             query="SELECT 
             id                  AS id,
-            age                 AS u_age,
             education           AS u_education,
             profession          AS u_profession,
             dream_for_future    AS u_dream,
@@ -14,10 +13,11 @@
             settle_else         AS u_relocate,
             virginity_opinion   AS u_virginity_opinion,
             ideal_marriage      AS u_ideal_marriage,
-            salary              AS u_salary,
+            ideal_partner       AS u_ideal_partner,
             sex                 AS u_sex,
             further_education_plans AS u_further_education,
-            short_bio           AS u_about_me
+            short_bio           AS u_about_me,
+            sexual_preference   AS u_sexual_preference
 
             FROM users"
       

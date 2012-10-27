@@ -206,24 +206,26 @@
   
   <!-- Users -->
   <field name="id" type="string" stored="true" required="true" />
-  <field name="u_sex" type="int" indexed="true" stored="true" />
-  <field name="u_further_education" type="int" indexed="true" stored="true" />
   <field name="u_family_preference" type="int" indexed="true" stored="true" />
   <field name="u_spouse_preference" type="int" indexed="true" stored="true" />
+  <field name="u_sexual_preference" type="int" indexed="true" stored="true" />
   <field name="u_relocate" type="int" indexed="true" stored="true" />
   
-  <field name="u_not_interested" type="text_en_insensitive" indexed="true" stored="true" />
+  <field name="u_sex" type="text_en_insensitive" indexed="true" stored="true" />
+  <field name="u_further_education" type="text_en_insensitive" indexed="true" stored="true" />
   <field name="u_education" type="text_en_insensitive" indexed="true" stored="true" />
   <field name="u_profession" type="text_en_insensitive" indexed="true" stored="true" />
-  <field name="u_hobbies" type="text_en_insensitive" indexed="true" stored="true" multiValued="true" />
+  <field name="u_about_me" type="text_en_insensitive" indexed="true" stored="true" />
   <field name="u_dream" type="text_en_insensitive" indexed="true" stored="true" />
   <field name="u_location" type="text_en_insensitive" indexed="true" stored="true" />
   <field name="u_virginity_opinion" type="text_en_insensitive" indexed="true" stored="true" />
   <field name="u_ideal_marriage" type="text_en_insensitive" indexed="true" stored="true" />
-  <field name="u_specific_interest" type="text_en_insensitive" indexed="true" stored="true" multiValued="true" />
-  <field name="u_about_me" type="text_en_insensitive" indexed="true" stored="true" multiValued="true" />
-  <field name="u_looking_for" type="text_en_insensitive" indexed="true" stored="true" multiValued="true" />
+  <field name="u_ideal_partner" type="text_en_insensitive" indexed="true" stored="true" />
 
+  <field name="u_specific_interest" type="text_en_insensitive" indexed="true" stored="true" multiValued="true" />
+  <field name="u_hobbies" type="text_en_insensitive" indexed="true" stored="true" multiValued="true" />
+  <field name="u_not_interested" type="text_en_insensitive" indexed="true" stored="true" multiValued="true" />
+  
   <field name="last_modified" type="date" indexed="true" stored="true"/>
   <field name="timestamp" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
   <!-- Users end -->
